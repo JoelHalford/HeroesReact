@@ -5,21 +5,28 @@ import './App.css';
 class LoginComponent extends Component {
   render() {
     return (
-		<div class="main-body">
-			<div class="intro">
-				<h1>Login</h1>
-				<h5>Already registered? Login now!</h5>
-			</div>
-			<div id="formContainer">
-				<form id="logRegForm">
-				    <label for="username">Username</label>
-				    <input type="username" id="username" aria-describedby="usernameHelp" placeholder="Enter username"/>
+		<div class="logreg-body">
+			<div class="card">
+			    <h5 class="card-header info-color white-text text-center py-4">
+			        <strong>Login</strong>
+			    </h5>
 
-				    <label for="password">Password</label>
-				    <input type="password" id="password" placeholder="Enter Password"/>
+			    <div class="card-body px-lg-5">
+			        <form class="text-center">
+			            <p>No account? Register here!</p>
+			            <div class="md-form mt-3">
+			            	<label for="username">Username</label>
+			                <input type="text" id="username" class="form-control"/>
+			                
+			            </div>
 
-				  	<button id="logRegForm" type="submit">Submit</button>
-				</form>
+			            <div class="md-form">
+			            	<label for="password">Password</label>
+			                <input type="password" id="password" class="form-control"/>
+			            </div>
+			            <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Register</button>
+			        </form>
+			    </div>
 			</div>
 		</div>
     );

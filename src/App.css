@@ -8,9 +8,7 @@ html {
 body {
   margin: 0;
   font-family: Staatliches;
-  background-image: url("images/heroes-bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+   background: url("images/heroes-bg.jpg") no-repeat center center fixed; 
   font-size: 1.2em;
 }
 
@@ -67,6 +65,15 @@ hr {
   padding-left: 100px;
   padding-right: 100px;
   padding-top: 40px;
+}
+
+.logreg-body {
+  margin: 2% 20%;
+  /*padding-top: 40px;*/
+}
+
+.card {
+  opacity: 0.9;
 }
 
 .main-body .home-title {
@@ -163,4 +170,21 @@ hr {
 .all-heroes ul div {
   display: flex;
   justify-content: space-around;
+}
+
+.hero-intro {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#universe-logo {
+  width: 50px; 
+  height: 50px
+}
+
+#hero-image {
+  width: 200px;
+  height: 200px;
 }

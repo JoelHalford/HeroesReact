@@ -12,6 +12,7 @@ import Heroes from './HeroesComponent.js';
 import Battlegrounds from './BattlegroundsComponent.js';
 import Register from './RegisterComponent.js';
 import Login from './LoginComponent.js';
+import SingleHero from './SingleHeroComponent.js';
 
 class NavComponent extends Component {
   render() {
@@ -21,6 +22,7 @@ class NavComponent extends Component {
 				<ul>
 					<li><Link to="/">Home</Link></li>
 					<li><Link to="/heroes">Heroes</Link></li>
+					<li><Link to="/hero">Hero</Link></li>
 					<li><Link to="/battlegrounds">Battlegrounds</Link></li>
 					<li><Link to="/register">Register</Link></li>
 					<li><Link to="/login">Login</Link></li>
@@ -28,6 +30,7 @@ class NavComponent extends Component {
 
 				<Route exact path="/" component={ Homepage } />
 				<Route path="/heroes" component={ Heroes } />
+				<Route path="/hero" component={ SingleHero } />
 				<Route path="/battlegrounds" component={ Battlegrounds } />
 				<Route path="/register" component={ Register } />
 				<Route path="/login" component={ Login } />
