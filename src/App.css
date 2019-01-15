@@ -8,9 +8,8 @@ html {
 body {
   margin: 0;
   font-family: Staatliches;
-  background-image: url("images/heroes-bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: url("images/heroes-bg2.jpg") no-repeat fixed; 
+  background-size: 100% 100%;
   font-size: 1.2em;
 }
 
@@ -67,6 +66,19 @@ hr {
   padding-left: 100px;
   padding-right: 100px;
   padding-top: 40px;
+}
+
+.logreg-body {
+  margin: 2% 20%;
+  /*padding-top: 40px;*/
+}
+
+.card {
+  opacity: 0.9;
+}
+
+.card-body input {
+  opacity: 1;
 }
 
 .main-body .home-title {
@@ -163,4 +175,36 @@ hr {
 .all-heroes ul div {
   display: flex;
   justify-content: space-around;
+}
+
+.hero-intro {
+  padding-top: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.hero-intro #hero-image {
+  /*flex: 1;*/
+}
+
+.hero-intro #hero-intro-text {
+  /*flex: 5;*/
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  margin-left: 20px;
+}
+
+#universe-logo {
+  width: 50px; 
+  height: 50px;
+}
+
+.hero-description {
+  padding-top: 40px;
+}
+
+.hero-intro-text-small {
+  font-size: 0.8em;
 }
