@@ -11,12 +11,12 @@ class HomepageComponent extends Component {
 			</div>
 			<h2>Register</h2>
 			<p>
-				<a href="register.html">Register</a> an account to view all heroes, skills and types.
+				<a href="register">Register</a> an account to view all heroes, skills and types.
 			</p>
 			<hr/>
 			<h2>Login</h2>
 			<p>
-				Already have an account? <a href="login.html">Login now</a>!
+				Already have an account? <a href="login">Login now</a>!
 			</p>
 			<hr/>
 			<h2>Most Recent Heroes</h2>

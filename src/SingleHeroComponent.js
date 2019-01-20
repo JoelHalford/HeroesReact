@@ -29,10 +29,10 @@ class HeroesComponent extends Component {
   render() {
     return (
 		<div class="main-body single-hero-body">
-			<h1 class="home-title"><img id="universe-logo" src={this.state.universe}/> {this.state.name}</h1>
+			<h1 class="home-title">{this.state.name}</h1>
 			<div id="hero-intro-text">
-				<h5>Class: <span class="hero-intro-text-small">{this.state.class}<img  class="hero-class-image" src={this.state.classIcon}/></span></h5>
-				<h5>Universe: <span class="hero-intro-text-small">{this.state.universeTxt}<img  class="hero-class-image" src={this.state.universe}/></span></h5>
+				<h5>Class: <span class="hero-intro-text-small">{this.state.class} <img class="hero-class-image" src={this.state.classIcon}/></span></h5>
+				<h5>Universe: <span class="hero-intro-text-small">{this.state.universeTxt}<img class="hero-class-image" src={this.state.universe}/></span></h5>
 				<h5>Difficulty: <span class="hero-intro-text-small">{this.state.difficulty}</span></h5>
 			</div>
 			<div class="hero-intro">

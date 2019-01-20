@@ -22,7 +22,7 @@ class NavComponent extends Component {
 				<ul>
 					<li><Link to="/">Home</Link></li>
 					<li><Link to="/heroes">Heroes</Link></li>
-					<li><Link to="/hero">Hero</Link></li>
+					<li><img id="nav-logo" src={require("./images/heroes-logo.png")}/></li>
 					<li><Link to="/register">Register</Link></li>
 					<li><Link to="/login">Login</Link></li>
 				</ul>
@@ -33,7 +33,6 @@ class NavComponent extends Component {
 				<Route path="/register" component={ Register } />
 				<Route path="/login" component={ Login } />
 			</nav>
-
 		</Router>
     );
   }

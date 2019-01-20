@@ -1,5 +1,30 @@
 @import url('https://fonts.googleapis.com/css?family=Staatliches');
 
+/* SCROLL BAR */
+/**************/
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+/* HTML AND BODY */
+/*****************/
 html {
   width: 100%;
   height: 100%;
@@ -13,18 +38,20 @@ body {
   font-size: 1.2em;
 }
 
+
 nav > ul {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
+  overflow: visible;
   background-color: rgba(255,255,255,0.9);
-  margin-top: 0;
+  margin-top: 10px;
+  height: 50px;
 }
 
 nav ul li {
   list-style: none;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 
 nav ul li a {
@@ -43,6 +70,12 @@ nav ul li a:visited {
   color: black;
 }
 
+nav #nav-logo {
+  height: 80px;
+  weight: 80px;
+  overflow: visible;
+}
+
 hr {
     border: 0;
     height: 1px;
@@ -55,7 +88,17 @@ hr {
 }
 
 .banner #banner-img {
-  height: 150px;
+  height: auto;
+  width: 80%;
+  animation: brightness 3s infinite linear both;
+/*   -webkit-transition: all 1s ease;
+   transition:  all 1s ease;
+   filter: brightness(130%);*/
+}
+@keyframes brightness {
+0% {filter: brightness(100%);}
+50%{filter: brightness(200%);}
+100% {filter: brightness(100%);}
 }
 
 .main-body {
@@ -101,11 +144,13 @@ hr {
   border-radius: 50%;
 }
 
-.recent-heroes li .icon:hover {
+.recent-heroes li:hover {
   filter: grayscale(80%);
 }
 .recent-heroes li .hero-name {
   position: absolute;
+  cursor: default;
+  user-select: none;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -167,14 +212,37 @@ hr {
 
 .all-heroes ul {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
+  padding: 0;
+}
+.all-heroes ul li {
+  position: relative;
+}
+.all-heroes ul li .image-thumb-text {
+  position: absolute;
+  display: block;
+  bottom: 5%;
+  left: 0%;
+  color: white;
+  background-color: black;
+  opacity: 0.7;
+  width: 165px;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 700;
+  /*transform: translate(-50%, -50%);*/
 }
 
 .all-heroes ul div {
   display: flex;
   justify-content: space-around;
+}
+
+.hero-image-thumb {
+  height: auto;
+  width: 70%;
 }
 
 .single-hero-body {
@@ -189,7 +257,7 @@ hr {
 }
 
 .hero-class-image {
-  height: 50px;
+  height: 25px;
   width: auto;
 }
 
@@ -201,8 +269,8 @@ hr {
 }
 
 #universe-logo {
-  width: 50px; 
-  height: 50px;
+  width: 40px; 
+  height: 40px;
 }
 
 .hero-description {
