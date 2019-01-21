@@ -89,7 +89,7 @@ hr {
 
 .banner #banner-img {
   height: auto;
-  width: 80%;
+  width: 60%;
   animation: brightness 3s infinite linear both;
 /*   -webkit-transition: all 1s ease;
    transition:  all 1s ease;
@@ -210,25 +210,53 @@ hr {
   border-radius: 10px;
 }
 
+input[type=text] {
+  width: 130px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+  width: 80%;
+}
+
+.all-heroes-limiter {
+  margin: 30px auto 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.all-heroes-limiter img {
+  max-height: 80px;
+  max-width: auto;
+}
+
 .all-heroes ul {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
-  padding: 0;
+  padding: 20px 0 0 0;
 }
 .all-heroes ul li {
   position: relative;
+  margin: 2px;
 }
+
+.all-heroes ul li img:hover{
+  filter: brightness(150%);
+}
+
 .all-heroes ul li .image-thumb-text {
   position: absolute;
   display: block;
-  bottom: 5%;
+  bottom: 0%;
   left: 0%;
   color: white;
   background-color: black;
   opacity: 0.7;
-  width: 165px;
+  width: 100%;
   text-align: center;
   font-size: 1.2em;
   font-weight: 700;
@@ -241,8 +269,10 @@ hr {
 }
 
 .hero-image-thumb {
+  max-width:200px;
+  max-height:280px;
+  width: auto;
   height: auto;
-  width: 70%;
 }
 
 .single-hero-body {

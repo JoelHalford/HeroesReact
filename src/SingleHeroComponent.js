@@ -36,7 +36,7 @@ class HeroesComponent extends Component {
 				<h5>Difficulty: <span class="hero-intro-text-small">{this.state.difficulty}</span></h5>
 			</div>
 			<div class="hero-intro">
-				<img  id="hero-image" src={this.state.image}/>
+				<img  id="hero-image" src={require("./images/heroes/Murky.jpg")}/>
 			</div>
 			<div class="more-hero">
 				<div class="hero-description">
