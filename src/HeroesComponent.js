@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
 class HeroesComponent extends Component {
 
 	constructor() {
 	  	super();
+
 	  	this.state = {
+	  		heroes: [],
 	  		name: "Jaina",
 	  		class: "Assassin",
 	  		classIcon: "https://vignette.wikia.nocookie.net/heroesofthestorm/images/0/0e/IconSupport.png/revision/latest?cb=20140807220510",
@@ -22,51 +25,43 @@ class HeroesComponent extends Component {
 	  		ult2:   'Summon Water Elemental',
 	  		passive: 'Frostbite'
 	  	}
-    }
+
+	  axios({
+        method:'get',
+        url:'http://localhost:8080/HeroesAPI/api/heroes/getAllHeroes',
+	  })
+      .then(response => {
+      	console.log(response.data)
+        //logic to whether is should be set to something else
+          this.setState({
+            heroes: response.data
+           });
+    	})
+  }
+
   render() {
+
+	let heroes = this.state.heroes.map((hero, i) => (
+		<li>
+			<a href={"hero/" + hero.heroID}><img class="hero-image-thumb" src={require("./images/heroes/" + hero.image)}/></a>
+			<span className="image-thumb-text">{hero.name}</span>
+		</li>
+    ));
     return (
-		<div class="main-body">
-			<div class="intro">
-				<h1 class="home-title">All heroes!</h1>
-				<h5>A complete list of heroes.</h5>
+		<div className="main-body">
+			<div className="intro">
+				<h5>View List of Heroes</h5>
 				<input type="text" name="search" placeholder="Search heroes"/>
 			</div>
-			<div class="all-heroes-limiter">
-				<img class="active" src={require("./images/warrior.png")}/>
+			<div className="all-heroes-limiter">
+				<img class="active" src={require("./images/Warrior.png")}/>
 				<img class="active" src={require("./images/assassin.png")}/>
 				<img class="active" src={require("./images/support.png")}/>
 				<img class="active" src={require("./images/specialist.png")}/>
 			</div>
-			<div class="all-heroes">
+			<div className="all-heroes">
 				<ul>
-					<li>
-						<img  class="hero-image-thumb" src={require("./images/heroes/Jaina.jpg")}/>
-						<span class="image-thumb-text">Jaina</span>
-					</li>
-					<li>
-						<img  class="hero-image-thumb" src={require("./images/heroes/Murky.jpg")}/>
-						<span class="image-thumb-text">Murky</span>
-					</li>
-					<li>
-						<img  class="hero-image-thumb" src={require("./images/heroes/Azmodan.jpg")}/>
-						<span class="image-thumb-text">Azmodan</span>
-					</li>
-					<li>
-						<img  class="hero-image-thumb" src={require("./images/heroes/Nova.jpg")}/>
-						<span class="image-thumb-text">Nova</span>
-					</li>
-					<li>
-						<img  class="hero-image-thumb" src={require("./images/heroes/Auriel.jpg")}/>
-						<span class="image-thumb-text">Auriel</span>
-					</li>
-					<li>
-						<img  class="hero-image-thumb" src={require("./images/heroes/Johanna.jpg")}/>
-						<span class="image-thumb-text">Johanna</span>
-					</li>
-					<li>
-						<img  class="hero-image-thumb" src={require("./images/heroes/Deckard.jpg")}/>
-						<span class="image-thumb-text">Deckard</span>
-					</li>
+					{heroes}
 				</ul>
 			</div>
 			

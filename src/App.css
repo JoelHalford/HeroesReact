@@ -105,7 +105,6 @@ hr {
   margin: 2% 20%;
   background-color: rgba(255,255,255,0.8);
   border-radius: 25px;
-  height: 1000px;
   padding-left: 100px;
   padding-right: 100px;
   padding-top: 40px;
@@ -113,7 +112,6 @@ hr {
 
 .logreg-body {
   margin: 2% 20%;
-  /*padding-top: 40px;*/
 }
 
 .card {
@@ -132,6 +130,7 @@ hr {
   display: flex;
   justify-content: space-around;
   padding: 0;
+  padding-bottom: 20px;
   flex-wrap: wrap;
 }
 
@@ -237,11 +236,15 @@ input[type=text]:focus {
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 20px 0 0 0;
+  padding: 20px 0 20px 0;
 }
 .all-heroes ul li {
   position: relative;
   margin: 2px;
+}
+
+.all-heroes ul li a {
+  padding: 0;
 }
 
 .all-heroes ul li img:hover{
@@ -284,6 +287,11 @@ input[type=text]:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.hero-intro #hero-image {
+  max-height: 300px;
+  max-width: auto;
 }
 
 .hero-class-image {
