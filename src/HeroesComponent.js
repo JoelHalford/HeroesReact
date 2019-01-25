@@ -9,21 +9,7 @@ class HeroesComponent extends Component {
 	  	super();
 
 	  	this.state = {
-	  		heroes: [],
-	  		name: "Jaina",
-	  		class: "Assassin",
-	  		classIcon: "https://vignette.wikia.nocookie.net/heroesofthestorm/images/0/0e/IconSupport.png/revision/latest?cb=20140807220510",
-	  		universeTxt: "Warcraft",
-	  		universe: "https://cdn.freebiesupply.com/logos/large/2x/world-of-warcraft-logo-png-transparent.png",
-	  		desc: "Once the apprentice of the Archmage Antonidas, Jaina Proudmoore led the survivors of Lordaeron to Kalimdor and founded the city of Theramore. Now, she serves the Alliance as a powerful voice fighting for reason and diplomacy.",
-	  		difficulty: "Easy",
-	  		image: 'https://i.pinimg.com/236x/06/25/28/062528e28c008ae0f185a7e240f634a7.jpg',
-	  		basic1: 'Frostbolt',
-	  		basic2: 'Blizzard',
-	  		basic3: 'Cone of Cold',
-	  		ult1:   'Ring of Frost',
-	  		ult2:   'Summon Water Elemental',
-	  		passive: 'Frostbite'
+	  		heroes: []
 	  	}
 
 	  axios({
@@ -40,13 +26,13 @@ class HeroesComponent extends Component {
   }
 
   render() {
-
 	let heroes = this.state.heroes.map((hero, i) => (
-		<li>
-			<a href={"hero/" + hero.heroID}><img class="hero-image-thumb" src={require("./images/heroes/" + hero.image)}/></a>
+		<li class="single-hero-li">
+			<a href={"hero/" + hero.heroID}><img class="hero-image-thumb" src={require("./images/heroes/" + hero.image )}/></a>
 			<span className="image-thumb-text">{hero.name}</span>
 		</li>
     ));
+
     return (
 		<div className="main-body">
 			<div className="intro">

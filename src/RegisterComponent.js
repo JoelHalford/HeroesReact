@@ -1,8 +1,34 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
 class RegisterComponent extends Component {
+
+  constructor() {
+  	super();
+
+  	this.state = {
+  		username: "",
+  		password: ""
+  	}
+
+
+  }
+
+    setUser = () => {
+
+    	console.log(this.state.username);
+        axios({
+            method: "post",
+            url: "http://localhost:8080/HeroesAPI/api/heroes/createAccount",
+            data: {
+                username: this.state.username,
+                password: this.state.password
+            }
+        });
+    } 
+
   render() {
     return (
 		<div class="logreg-body">
@@ -16,16 +42,16 @@ class RegisterComponent extends Component {
 			        <form class="text-center">
 			            <p>Already registered? Login now!</p>
 			            <div class="md-form mt-3">
-			            	<label for="materialSubscriptionFormPasswords">Username</label>
-			                <input type="text" id="materialSubscriptionFormPasswords" class="form-control"/>
+			            	<label for="username">Username</label>
+			                <input type="text" id="username" class="form-control" value={this.state.username} />
 			                
 			            </div>
 
 			            <div class="md-form">
-			            	<label for="materialSubscriptionFormEmail">Password</label>
-			                <input type="password" id="materialSubscriptionFormEmail" class="form-control"/>
+			            	<label for="password">Password</label>
+			                <input type="password" id="password" class="form-control" value={this.state.password} />
 			            </div>
-			            <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Register</button>
+			            <button onClick={this.setUser} class="btn btn-outline-info btn-rounded">Register</button>
 			        </form>
 			    </div>
 			</div>
