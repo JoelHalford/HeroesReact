@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
     BrowserRouter as Router,
     Route,
-    Link
+    Link,
+    withRouter
 } from 'react-router-dom';
 
 import logo from './logo.svg';
@@ -13,6 +14,10 @@ import Battlegrounds from './BattlegroundsComponent.js';
 import Register from './RegisterComponent.js';
 import Login from './LoginComponent.js';
 import SingleHero from './SingleHeroComponent.js';
+import {ProtectedRoute} from './Protected.route';
+import Test from './TestComponent.js';
+import Auth from './Auth.js';
+
 
 class NavComponent extends Component {
   render() {
@@ -26,6 +31,13 @@ class NavComponent extends Component {
 						<li><img id="nav-logo" src={require("./images/heroes-logo.png")}/></li>
 						<li><Link to="/register">Register</Link></li>
 						<li><Link to="/login">Login</Link></li>
+						<li><Link to="/test">Test</Link></li>
+						<li onClick={() => {
+							Auth.logout(() => {
+								console.log(Auth.isAuthenticated());
+							});
+						}}>Logout</li>
+
 					</ul>
 				</nav>
 				<Route exact path="/" component={ Homepage } />
@@ -33,6 +45,11 @@ class NavComponent extends Component {
 				<Route path="/hero/:id" component={SingleHero} />} />
 				<Route path="/register" component={ Register } />
 				<Route path="/login" component={ Login } />
+				<ProtectedRoute 
+					exact
+					path="/test" 
+					component={ Test } 
+				/>
 			</div>
 		</Router>
     );
