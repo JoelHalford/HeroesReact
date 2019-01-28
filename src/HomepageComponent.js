@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import auth from './Auth.js';
 
 class HomepageComponent extends Component {
   render() {
+
+  	console.log(auth.isAuthenticated());
     return (
 		<div class="main-body">
 			<div class="banner">

@@ -24,7 +24,8 @@ class RegisterComponent extends Component {
 
     setUser = () => {
 
-    	var hash = bcrypt.hashSync(this.state.password, 10);
+    	var salt = bcrypt.genSaltSync(10);
+    	var hash = bcrypt.hashSync(this.state.password, salt);
         axios({
             method: "post",
             url: "http://localhost:8080/HeroesAPI/api/heroes/createAccount",
@@ -39,7 +40,6 @@ class RegisterComponent extends Component {
     return (
 		<div class="logreg-body">
 			<div class="card">
-
 			    <h5 class="card-header info-color white-text text-center py-4">
 			        <strong>Register</strong>
 			    </h5>

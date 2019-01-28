@@ -8,7 +8,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isAuthenticated: false
+      isAuthenticated: false,
+      username: ""
     };
   }
 
@@ -20,7 +21,8 @@ class App extends Component {
 
     const childProps = {
       isAuthenticated: this.state.isAuthenticated,
-      userHasAuthenticated: this.userHasAuthenticated
+      userHasAuthenticated: this.userHasAuthenticated,
+      username: this.state.username
     }
 
     return (
