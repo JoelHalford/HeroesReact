@@ -278,6 +278,9 @@ input[type=text]:focus {
   height: auto;
 }
 
+.single-hero-li {
+  list-style-type: none;
+}
 .single-hero-body {
   font-size: 1.5em;
 }
@@ -285,12 +288,10 @@ input[type=text]:focus {
 .hero-intro {
   padding-top: 40px;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .hero-intro #hero-image {
-  max-height: 300px;
+  max-height: 500px;
   max-width: auto;
 }
 
@@ -312,14 +313,12 @@ input[type=text]:focus {
 }
 
 .hero-description {
-  flex: 1;
-  text-align: right;
-  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .hero-talents {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex: 1;
 }
 
@@ -327,4 +326,20 @@ input[type=text]:focus {
   padding-top: 40px;
   display: flex;
   /*align-items: center;*/
+}
+
+#skill-table {
+  margin-top: 20px;
+  background-color: #464c56;
+}
+.table-head {
+  font-weight: 700;
+}
+
+.table thead tr th {
+  padding: 0;
+}
+
+.table tbody tr td {
+  padding: 0;
 }

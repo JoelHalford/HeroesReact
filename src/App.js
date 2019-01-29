@@ -4,12 +4,32 @@ import './App.css';
 import Nav from './NavComponent.js';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isAuthenticated: false,
+      username: ""
+    };
+  }
+
+  userHasAuthenticated = authenticated => {
+    this.setState({ isAuthenticated: authenticated });
+  }
+
   render() {
+
+    const childProps = {
+      isAuthenticated: this.state.isAuthenticated,
+      userHasAuthenticated: this.userHasAuthenticated,
+      username: this.state.username
+    }
+
     return (
       <div className="App">
         <header className="App-header">
           <script type="text/javascript" src="main.js"></script>
-          <Nav />
+          <Nav childProps={childProps} />
         </header>
       </div>
     );

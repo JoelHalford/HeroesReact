@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 
-class HeroesComponent extends Component {
+class TestComponent extends Component {
 
 	constructor() {
 	  	super();
@@ -56,4 +56,4 @@ class HeroesComponent extends Component {
   }
 }
 
-export default HeroesComponent;
+export default TestComponent;
