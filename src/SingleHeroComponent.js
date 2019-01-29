@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Button } from 'reactstrap';
 import axios from 'axios';
@@ -38,29 +37,29 @@ class HeroesComponent extends Component {
   	}
   	
     return (
-		<div class="main-body single-hero-body">
-			<h1 class="home-title">{this.state.heroes.name}</h1>
-			<h4 class="home-title">{this.state.heroes.tag}</h4>
+		<div className="main-body single-hero-body">
+			<h1 className="home-title">{this.state.heroes.name}</h1>
+			<h4 className="home-title">{this.state.heroes.tag}</h4>
 			<div id="hero-intro-text">												
-				<h5>Class: <span class="hero-intro-text-small">{this.state.heroes.heroClass} <img class="hero-class-image" /></span></h5>
-				<h5>Universe: <span class="hero-intro-text-small">{this.state.heroes.universe}<img class="hero-class-image" src={this.state.universe}/></span></h5>
-				<h5>Difficulty: <span class="hero-intro-text-small">{this.state.heroes.difficulty}</span></h5>
+				<h5>Class: <span className="hero-intro-text-small">{this.state.heroes.heroClass} <img className="hero-class-image" /></span></h5>
+				<h5>Universe: <span className="hero-intro-text-small">{this.state.heroes.universe}<img className="hero-class-image" src={this.state.universe}/></span></h5>
+				<h5>Difficulty: <span className="hero-intro-text-small">{this.state.heroes.difficulty}</span></h5>
 			</div>
-			<div class="hero-intro">
+			<div className="hero-intro">
 			<img id="hero-image" src={hero}/>
-			<div class="hero-description">
+			<div className="hero-description">
 				<h4>Description</h4>
 				<p>
 					{this.state.heroes.description}
 				</p>
 			</div>
 			</div>        
-  <table id="skill-table" class="table table-hover table-dark">
+  <table id="skill-table" className="table table-hover table-dark">
     <tbody>
       <tr>
-        <td class="table-head">Basic 1</td>
-        <td class="table-head">Basic 2</td>
-        <td class="table-head">Basic 3</td>
+        <td className="table-head">Basic 1</td>
+        <td className="table-head">Basic 2</td>
+        <td className="table-head">Basic 3</td>
       </tr>
       <tr>
         <td>{this.state.heroes.basic1}</td>
@@ -68,15 +67,15 @@ class HeroesComponent extends Component {
         <td>{this.state.heroes.basic3}</td>
       </tr>
       <tr>
-        <td class="table-head">Ult 1</td>
-        <td class="table-head">Ult 2</td>
+        <td className="table-head">Ult 1</td>
+        <td className="table-head">Ult 2</td>
       </tr>
       <tr>
         <td>{this.state.heroes.ult1}</td>
         <td>{this.state.heroes.ult2}</td>
       </tr>
       <tr>
-        <td class="table-head">Trait</td>
+        <td className="table-head">Trait</td>
       </tr>
       <tr>
         <td>{this.state.heroes.trait}</td>

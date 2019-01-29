@@ -33,7 +33,7 @@ html {
 body {
   margin: 0;
   font-family: Staatliches;
-  background: url("images/heroes-bg2.jpg") no-repeat fixed; 
+  background: url("images/heroes-bg2.jpg") no-repeat ; 
   background-size: 100% 100%;
   font-size: 1.2em;
 }

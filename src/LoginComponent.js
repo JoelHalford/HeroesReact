@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import auth from './Auth.js';
 import bcrypt from 'bcryptjs';
 import axios from 'axios';
+import { withCookies, Cookies } from 'react-cookie';
 
 class LoginComponent extends Component {
 
@@ -45,8 +45,10 @@ class LoginComponent extends Component {
 
 	    	if (bcrypt.compareSync(password, user.password)) {
 	    		auth.login(() => {
-	    			// this.props.history.push("/");
+				    // const { cookies } = this.props;
+				    // cookies.set('username', this.state.username, {path: "/"});
 					});
+
 	    	} else {
 	    		console.log("error");
 	    	}
@@ -57,23 +59,23 @@ class LoginComponent extends Component {
   render(props) {
 
     return (
-		<div class="logreg-body">
-			<div class="card">
-			    <h5 class="card-header info-color white-text text-center py-4">
+		<div className="logreg-body">
+			<div className="card">
+			    <h5 className="card-header info-color white-text text-center py-4">
 			        <strong>Login</strong>
 			    </h5>
-			    <div class="card-body px-lg-5">
-			        <form class="text-center">
+			    <div className="card-body px-lg-5">
+			        <form className="text-center">
 			            <p>No account? Register here!</p>
-			            <div class="md-form mt-3">
+			            <div className="md-form mt-3">
 			            	<label for="username">Username</label>
-			                <input type="text" id="username" class="form-control" value={this.state.username} onChange={this.updateUsername} />       
+			                <input type="text" id="username" className="form-control" value={this.state.username} onChange={this.updateUsername} />       
 			            </div>
-			            <div class="md-form">
+			            <div className="md-form">
 			            	<label for="password">Password</label>
-			                <input type="password" id="password" class="form-control" value={this.state.password} onChange={this.updatePassword} />
+			                <input type="password" id="password" className="form-control" value={this.state.password} onChange={this.updatePassword} />
 			            </div>
-			            <button type="button" onClick={this.setUser} class="btn btn-outline-info btn-rounded">Login</button>
+			            <button type="button" onClick={this.setUser} className="btn btn-outline-info btn-rounded">Login</button>
 			        </form>
 			    </div>
 			</div>

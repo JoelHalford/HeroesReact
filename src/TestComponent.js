@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 
@@ -27,8 +26,8 @@ class TestComponent extends Component {
 
   render() {
 	let heroes = this.state.heroes.map((hero, i) => (
-		<li class="single-hero-li">
-			<a href={"hero/" + hero.heroID}><img class="hero-image-thumb" src={require("./images/heroes/" + hero.image )}/></a>
+		<li className="single-hero-li">
+			<a href={"hero/" + hero.heroID}><img className="hero-image-thumb" alt="hero" src={require("./images/heroes/" + hero.image )}/></a>
 			<span className="image-thumb-text">{hero.name}</span>
 		</li>
     ));

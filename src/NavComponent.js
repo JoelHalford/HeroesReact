@@ -6,7 +6,6 @@ import {
     withRouter
 } from 'react-router-dom';
 
-import logo from './logo.svg';
 import './App.css';
 import Homepage from './HomepageComponent.js';
 import Heroes from './HeroesComponent.js';
@@ -17,25 +16,37 @@ import SingleHero from './SingleHeroComponent.js';
 import {ProtectedRoute} from './Protected.route';
 import Test from './TestComponent.js';
 import Auth from './Auth.js';
-
+import Cookies from 'universal-cookie';
 
 class NavComponent extends Component {
 
 	constructor(props) {
 		super(props);
+
+
 		this.state = {
-			usernameDataFromChild: null
+			usernameDataFromChild: null,
+			username: ""
+
 		};
 	}
 
 	myCallback = (dataFromChild) => {
+
+		const cookies = new Cookies();
+
 		console.log("hi: " + dataFromChild);
-		this.setState({ usernameDataFromChild: dataFromChild });
+		cookies.set('username', dataFromChild);
+		this.setState({ 
+			usernameDataFromChild: dataFromChild ,
+			username: cookies.get('username')
+		});
 	}
 
   render() {
 
-  	function loggedIn() {
+  	  function loggedIn() {
+  	  	console.log(Auth.isAuthenticated());
   		if (Auth.isAuthenticated())
   		{
   			return <ul>
@@ -44,7 +55,6 @@ class NavComponent extends Component {
 						<li><img id="nav-logo" src={require("./images/heroes-logo.png")}/></li>
 
 						<li><Link to="/test">Test</Link></li>
-						<li>{this.state.usernameDataFromChild}</li>
 						<li onClick={() => {
 							Auth.logout(() => {
 								console.log(Auth.isAuthenticated());
