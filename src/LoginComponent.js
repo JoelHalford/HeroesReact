@@ -39,14 +39,11 @@ class LoginComponent extends Component {
 			var password = this.state.password;
 			var username = this.state.username;
 
-			this.props.callbackFromParent(this.state.username);
-
-	    this.state.users.forEach(function(user) {
-
-	    	if (bcrypt.compareSync(password, user.password)) {
+			this.props.callbackFromNav(this.state.username);
+	    	this.state.users.forEach(function(user) {
+	    		
+	    	if (username === user.username && bcrypt.compareSync(password, user.password)) {
 	    		auth.login(() => {
-				    // const { cookies } = this.props;
-				    // cookies.set('username', this.state.username, {path: "/"});
 					});
 
 	    	} else {

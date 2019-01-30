@@ -36,7 +36,7 @@ class HeroesComponent extends Component {
 		<div className="main-body">
 			<div className="intro">
 				<h5>View List of Heroes</h5>
-				<input type="text" name="search" placeholder="Search heroes"/>
+				<input id="searchHero" type="text" name="search" placeholder="Search heroes"/>
 			</div>
 			<div className="all-heroes-limiter">
 				<img className="active" src={require("./images/Warrior.png")}/>

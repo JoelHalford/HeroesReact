@@ -16,7 +16,26 @@ class RegisterComponent extends Component {
 
     updateUsername = (event) => {
         this.setState({ username: event.target.value });
+        this.validateUsername();
     }
+
+    validateUsername = () => {
+
+    	var invalidStyle = {
+    		color: 'red'
+    	}
+    	var validStyle = {
+    		color: 'green'
+    	}
+
+	    if (this.state.username.length < 4)
+	    {
+	    	return <p style={invalidStyle}>Username should be more than 4 characters.</p>
+	    } else {
+	    	return <p style={validStyle}>Username is valid</p>
+	    }
+    }
+
     updatePassword = (event) => {
         this.setState({ password: event.target.value });
     }
@@ -49,7 +68,7 @@ class RegisterComponent extends Component {
 			            <div className="md-form mt-3">
 			            	<label for="username">Username</label>
 			                <input type="text" id="username" className="form-control" value={this.state.username} onChange={this.updateUsername} />
-			                
+			                {this.validateUsername()}
 			            </div>
 
 			            <div className="md-form">
