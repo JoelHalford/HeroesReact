@@ -10,15 +10,39 @@ class RegisterComponent extends Component {
 
 	  	this.state = {
 	  		username: "",
-	  		password: ""
+	  		password: "",
+	  		correctInput: false
 	  	}
   	}
 
     updateUsername = (event) => {
         this.setState({ username: event.target.value });
+        this.validateUsername();
     }
+
     updatePassword = (event) => {
         this.setState({ password: event.target.value });
+        this.validatePassword();
+    }
+
+    validateUsername = () => {
+
+	    if (this.state.username.length <= 4)
+	    {
+	    	return <p className="invalidInput">Username should be more than 4 characters.</p>
+	    } else {
+	    	return <p className="validInput">Username is valid</p>
+	    }
+    }
+
+    validatePassword = () => {
+	    if (this.state.password.length <= 8)
+	    {
+	    	return <p className="invalidInput">Password should be more than 8 characters.</p>
+	    } else {
+
+	    	return <p className="validInput">Password is valid</p>
+	    }
     }
 
     setUser = () => {
@@ -49,12 +73,13 @@ class RegisterComponent extends Component {
 			            <div className="md-form mt-3">
 			            	<label for="username">Username</label>
 			                <input type="text" id="username" className="form-control" value={this.state.username} onChange={this.updateUsername} />
-			                
+			                {this.validateUsername()}
 			            </div>
 
 			            <div className="md-form">
 			            	<label for="password">Password</label>
 			                <input type="password" id="password" className="form-control" value={this.state.password} onChange={this.updatePassword} />
+			                {this.validatePassword()}
 			            </div>
 			            <button type="button" onClick={this.setUser} className="btn btn-outline-info btn-rounded">Register</button>
 			        </form>

@@ -12,7 +12,7 @@ class Auth {
 		}
 		else {
 			this.authenticated = true;
-		}		
+		}
 	}
 
 	login(cb) {

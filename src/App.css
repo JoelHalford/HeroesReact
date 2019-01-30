@@ -33,7 +33,7 @@ html {
 body {
   margin: 0;
   font-family: Staatliches;
-  background: url("images/heroes-bg2.jpg") no-repeat ; 
+  background: url("images/heroes-bg2.jpg") no-repeat fixed; 
   background-size: 100% 100%;
   font-size: 1.2em;
 }
@@ -90,6 +90,7 @@ hr {
 .banner #banner-img {
   height: auto;
   width: 60%;
+  margin: 0 auto;
   animation: brightness 3s infinite linear both;
 /*   -webkit-transition: all 1s ease;
    transition:  all 1s ease;
@@ -209,7 +210,7 @@ hr {
   border-radius: 10px;
 }
 
-input[type=text] {
+#searchHero {
   width: 130px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
@@ -342,4 +343,58 @@ input[type=text]:focus {
 
 .table tbody tr td {
   padding: 0;
+}
+
+#updateBtn, #deleteBtn{
+  margin: 20px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.thumbnail {
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    
+    width: 320px;
+    height: 240px;
+    
+    -webkit-transform: translate(-50%,-50%); /* Safari and Chrome */
+    -moz-transform: translate(-50%,-50%); /* Firefox */
+    -ms-transform: translate(-50%,-50%); /* IE 9 */
+    -o-transform: translate(-50%,-50%); /* Opera */
+    transform: translate(-50%,-50%);
+}
+
+.single-hero-li {
+    overflow: hidden;   
+}
+
+.single-hero-li img {
+    -webkit-transition: all 1s ease; /* Safari and Chrome */
+    -moz-transition: all 1s ease; /* Firefox */
+    -o-transition: all 1s ease; /* IE 9 */
+    -ms-transition: all 1s ease; /* Opera */
+    transition: all 1s ease;
+}
+
+.single-hero-li:hover img {
+    -webkit-transform:scale(1.1); /* Safari and Chrome */
+    -moz-transform:scale(1.1); /* Firefox */
+    -ms-transform:scale(1.1); /* IE 9 */
+    -o-transform:scale(1.1); /* Opera */
+     transform:scale(1.05);
+}
+
+.invalidInput {
+  color: red;
+  font-weight: bold;
+}
+
+.validInput {
+  color: green;
+  font-weight: bold;
 }

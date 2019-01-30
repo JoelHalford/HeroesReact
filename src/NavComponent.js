@@ -9,11 +9,12 @@ import {
 import './App.css';
 import Homepage from './HomepageComponent.js';
 import Heroes from './HeroesComponent.js';
-import Battlegrounds from './BattlegroundsComponent.js';
+import Account from './AccountComponent.js';
 import Register from './RegisterComponent.js';
 import Login from './LoginComponent.js';
 import SingleHero from './SingleHeroComponent.js';
 import {ProtectedRoute} from './Protected.route';
+import {UnprotectedRoute} from './Unprotected.route';
 import Test from './TestComponent.js';
 import Auth from './Auth.js';
 import Cookies from 'universal-cookie';
@@ -23,22 +24,21 @@ class NavComponent extends Component {
 	constructor(props) {
 		super(props);
 
-
 		this.state = {
-			usernameDataFromChild: null,
+			usernameDataFromLogin: null,
 			username: ""
 
 		};
 	}
 
-	myCallback = (dataFromChild) => {
+	myCallback = (dataFromLogin) => {
 
 		const cookies = new Cookies();
 
-		console.log("hi: " + dataFromChild);
-		cookies.set('username', dataFromChild);
+		console.log("hi: " + dataFromLogin);
+		cookies.set('username', dataFromLogin);
 		this.setState({ 
-			usernameDataFromChild: dataFromChild ,
+			usernameDataFromLogin: dataFromLogin ,
 			username: cookies.get('username')
 		});
 	}
@@ -55,6 +55,7 @@ class NavComponent extends Component {
 						<li><img id="nav-logo" src={require("./images/heroes-logo.png")}/></li>
 
 						<li><Link to="/test">Test</Link></li>
+						<li><Link to="/account">Account</Link></li>
 						<li onClick={() => {
 							Auth.logout(() => {
 								console.log(Auth.isAuthenticated());
@@ -81,10 +82,11 @@ class NavComponent extends Component {
 					{loggedIn()}
 				</nav>
 				<Route exact path="/" component={ Homepage } />
-				<Route path="/heroes" component={ Heroes } />
+				<ProtectedRoute path="/heroes" component={ Heroes } />
 				<Route path="/hero/:id" component={SingleHero} />} />
-				<Route path="/register" component={ Register } />
-				<Route path="/login" render={() => <Login component={Login} callbackFromParent={this.myCallback} />} />
+				<ProtectedRoute path="/account" component={ Account } />
+				<UnprotectedRoute path="/register" component={ Register } />
+				<Route path="/login" render={() => <Login component={Login} callbackFromNav={this.myCallback} />} />
 
 				<ProtectedRoute 
 					exact

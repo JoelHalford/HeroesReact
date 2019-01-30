@@ -4,7 +4,6 @@ import auth from './Auth.js';
 
 class HomepageComponent extends Component {
   render() {
-
   	console.log(auth.isAuthenticated());
     return (
 		<div className="main-body">
