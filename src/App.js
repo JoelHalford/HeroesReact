@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Nav from './NavComponent.js';
+import { CookiesProvider } from 'react-cookie';
 
 class App extends Component {
 
@@ -26,12 +26,14 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <script type="text/javascript" src="main.js"></script>
-          <Nav childProps={childProps} />
-        </header>
-      </div>
+      <CookiesProvider>
+        <div className="App">
+          <header className="App-header">
+            <script type="text/javascript" src="main.js"></script>
+            <Nav childProps={childProps} />
+          </header>
+        </div>
+      </CookiesProvider>
     );
   }
 }
