@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 import bcrypt from 'bcryptjs';
@@ -11,15 +10,39 @@ class RegisterComponent extends Component {
 
 	  	this.state = {
 	  		username: "",
-	  		password: ""
+	  		password: "",
+	  		correctInput: false
 	  	}
   	}
 
     updateUsername = (event) => {
         this.setState({ username: event.target.value });
+        this.validateUsername();
     }
+
     updatePassword = (event) => {
         this.setState({ password: event.target.value });
+        this.validatePassword();
+    }
+
+    validateUsername = () => {
+
+	    if (this.state.username.length <= 4)
+	    {
+	    	return <p className="invalidInput">Username should be more than 4 characters.</p>
+	    } else {
+	    	return <p className="validInput">Username is valid</p>
+	    }
+    }
+
+    validatePassword = () => {
+	    if (this.state.password.length <= 8)
+	    {
+	    	return <p className="invalidInput">Password should be more than 8 characters.</p>
+	    } else {
+
+	    	return <p className="validInput">Password is valid</p>
+	    }
     }
 
     setUser = () => {
@@ -38,26 +61,27 @@ class RegisterComponent extends Component {
 
   render() {
     return (
-		<div class="logreg-body">
-			<div class="card">
-			    <h5 class="card-header info-color white-text text-center py-4">
+		<div className="logreg-body">
+			<div className="card">
+			    <h5 className="card-header info-color white-text text-center py-4">
 			        <strong>Register</strong>
 			    </h5>
 
-			    <div class="card-body px-lg-5">
-			        <form class="text-center">
+			    <div className="card-body px-lg-5">
+			        <form className="text-center">
 			            <p>Already registered? Login now!</p>
-			            <div class="md-form mt-3">
+			            <div className="md-form mt-3">
 			            	<label for="username">Username</label>
-			                <input type="text" id="username" class="form-control" value={this.state.username} onChange={this.updateUsername} />
-			                
+			                <input type="text" id="username" className="form-control" value={this.state.username} onChange={this.updateUsername} />
+			                {this.validateUsername()}
 			            </div>
 
-			            <div class="md-form">
+			            <div className="md-form">
 			            	<label for="password">Password</label>
-			                <input type="password" id="password" class="form-control" value={this.state.password} onChange={this.updatePassword} />
+			                <input type="password" id="password" className="form-control" value={this.state.password} onChange={this.updatePassword} />
+			                {this.validatePassword()}
 			            </div>
-			            <button type="button" onClick={this.setUser} class="btn btn-outline-info btn-rounded">Register</button>
+			            <button type="button" onClick={this.setUser} className="btn btn-outline-info btn-rounded">Register</button>
 			        </form>
 			    </div>
 			</div>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 
@@ -27,8 +26,8 @@ class HeroesComponent extends Component {
 
   render() {
 	let heroes = this.state.heroes.map((hero, i) => (
-		<li class="single-hero-li">
-			<a href={"hero/" + hero.heroID}><img class="hero-image-thumb" src={require("./images/heroes/" + hero.image )}/></a>
+		<li className="single-hero-li">
+			<a href={"hero/" + hero.heroID}><img className="hero-image-thumb" src={require("./images/heroes/" + hero.image )}/></a>
 			<span className="image-thumb-text">{hero.name}</span>
 		</li>
     ));
@@ -37,13 +36,13 @@ class HeroesComponent extends Component {
 		<div className="main-body">
 			<div className="intro">
 				<h5>View List of Heroes</h5>
-				<input type="text" name="search" placeholder="Search heroes"/>
+				<input id="searchHero" type="text" name="search" placeholder="Search heroes"/>
 			</div>
 			<div className="all-heroes-limiter">
-				<img class="active" src={require("./images/Warrior.png")}/>
-				<img class="active" src={require("./images/assassin.png")}/>
-				<img class="active" src={require("./images/support.png")}/>
-				<img class="active" src={require("./images/specialist.png")}/>
+				<img className="active" src={require("./images/Warrior.png")}/>
+				<img className="active" src={require("./images/assassin.png")}/>
+				<img className="active" src={require("./images/support.png")}/>
+				<img className="active" src={require("./images/specialist.png")}/>
 			</div>
 			<div className="all-heroes">
 				<ul>
