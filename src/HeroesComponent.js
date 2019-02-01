@@ -27,7 +27,7 @@ class HeroesComponent extends Component {
   render() {
 	let heroes = this.state.heroes.map((hero, i) => (
 		<li className="single-hero-li">
-			<a href={"hero/" + hero.heroID}><img className="hero-image-thumb" src={require("./images/heroes/" + hero.image )}/></a>
+			<a href={"hero/" + hero.heroID}><img className="hero-image-thumb" alt={hero.name} src={require("./images/heroes/" + hero.image )}/></a>
 			<span className="image-thumb-text">{hero.name}</span>
 		</li>
     ));
@@ -39,17 +39,16 @@ class HeroesComponent extends Component {
 				<input id="searchHero" type="text" name="search" placeholder="Search heroes"/>
 			</div>
 			<div className="all-heroes-limiter">
-				<img className="active" src={require("./images/Warrior.png")}/>
-				<img className="active" src={require("./images/assassin.png")}/>
-				<img className="active" src={require("./images/support.png")}/>
-				<img className="active" src={require("./images/specialist.png")}/>
+				<img className="active" alt="Warrior" src={require("./images/Warrior.png")}/>
+				<img className="active" alt="Assassin" src={require("./images/assassin.png")}/>
+				<img className="active" alt="Support" src={require("./images/support.png")}/>
+				<img className="active" alt="Specialist" src={require("./images/specialist.png")}/>
 			</div>
 			<div className="all-heroes">
 				<ul>
 					{heroes}
 				</ul>
-			</div>
-			
+			</div>			
 		</div>
     );
   }

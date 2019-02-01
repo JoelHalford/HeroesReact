@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import {
     BrowserRouter as Router,
     Route,
-    Link,
-    withRouter
+    Link
 } from 'react-router-dom';
 
 import './App.css';
@@ -15,7 +14,6 @@ import Login from './LoginComponent.js';
 import SingleHero from './SingleHeroComponent.js';
 import {ProtectedRoute} from './Protected.route';
 import {UnprotectedRoute} from './Unprotected.route';
-import Test from './TestComponent.js';
 import Auth from './Auth.js';
 import Cookies from 'universal-cookie';
 
@@ -35,7 +33,6 @@ class NavComponent extends Component {
 
 		const cookies = new Cookies();
 
-		console.log("hi: " + dataFromLogin);
 		cookies.set('username', dataFromLogin);
 		this.setState({ 
 			usernameDataFromLogin: dataFromLogin ,
@@ -52,9 +49,8 @@ class NavComponent extends Component {
   			return <ul>
 						<li><Link to="/">Home</Link></li>
 						<li><Link to="/heroes">Heroes</Link></li>
-						<li><img id="nav-logo" src={require("./images/heroes-logo.png")}/></li>
+						<li><img id="nav-logo" alt="icon" src={require("./images/heroes-logo.png")}/></li>
 
-						<li><Link to="/test">Test</Link></li>
 						<li><Link to="/account">Account</Link></li>
 						<li onClick={() => {
 							Auth.logout(() => {
@@ -68,8 +64,7 @@ class NavComponent extends Component {
 				return <ul>
 					<li><Link to="/">Home</Link></li>
 					<li><Link to="/heroes">Heroes</Link></li>
-					<li><img id="nav-logo" src={require("./images/heroes-logo.png")}/></li>
-
+					<li><img id="nav-logo" alt="nav-logo" src={require("./images/heroes-logo.png")}/></li>
 					<li><Link to="/register">Register</Link></li>
 					<li><Link to="/login">Login</Link></li>
 				</ul>
@@ -87,12 +82,6 @@ class NavComponent extends Component {
 				<ProtectedRoute path="/account" component={ Account } />
 				<UnprotectedRoute path="/register" component={ Register } />
 				<Route path="/login" render={() => <Login component={Login} callbackFromNav={this.myCallback} />} />
-
-				<ProtectedRoute 
-					exact
-					path="/test" 
-					component={ Test } 
-				/>
 			</div>
 		</Router>
     );

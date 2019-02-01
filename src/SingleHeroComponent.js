@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Button } from 'reactstrap';
 import axios from 'axios';
 
 class HeroesComponent extends Component {
@@ -25,15 +24,17 @@ class HeroesComponent extends Component {
   }
 
   render() {
+
+    var hero;
   	const heroN = this.state.heroes.image;
   	const images = require.context('./images/heroes', true);
   	const heroName = heroN;
-  	if (heroName == undefined)
+  	if (heroName === undefined)
   	{
-  		var hero = "https://via.placeholder.com/206x300";
+  		hero = "https://via.placeholder.com/206x300";
   	} else
   	{
-  		var hero = images('./' + heroName);
+  		hero = images('./' + heroName);
   	}
   	
     return (
@@ -41,12 +42,12 @@ class HeroesComponent extends Component {
 			<h1 className="home-title">{this.state.heroes.name}</h1>
 			<h4 className="home-title">{this.state.heroes.tag}</h4>
 			<div id="hero-intro-text">												
-				<h5>Class: <span className="hero-intro-text-small">{this.state.heroes.heroClass} <img className="hero-class-image" /></span></h5>
-				<h5>Universe: <span className="hero-intro-text-small">{this.state.heroes.universe}<img className="hero-class-image" src={this.state.universe}/></span></h5>
+				<h5>Class: <span className="hero-intro-text-small">{this.state.heroes.heroClass} <img className="hero-class-image" alt={this.state.heroes.heroClass} /></span></h5>
+				<h5>Universe: <span className="hero-intro-text-small">{this.state.heroes.universe}<img className="hero-class-image" alt={this.state.heroes.universe} src={this.state.universe}/></span></h5>
 				<h5>Difficulty: <span className="hero-intro-text-small">{this.state.heroes.difficulty}</span></h5>
 			</div>
 			<div className="hero-intro">
-			<img id="hero-image" src={hero}/>
+			<img id="hero-image" src={hero} alt="hero name" />
 			<div className="hero-description">
 				<h4>Description</h4>
 				<p>

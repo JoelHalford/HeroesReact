@@ -33,9 +33,12 @@ html {
 body {
   margin: 0;
   font-family: Staatliches;
-  background: url("images/heroes-bg2.jpg") no-repeat fixed; 
-  background-size: 100% 100%;
   font-size: 1.2em;
+  background: url("images/heroes-bg2.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 
@@ -374,19 +377,19 @@ img {
 }
 
 .single-hero-li img {
-    -webkit-transition: all 1s ease; /* Safari and Chrome */
-    -moz-transition: all 1s ease; /* Firefox */
-    -o-transition: all 1s ease; /* IE 9 */
-    -ms-transition: all 1s ease; /* Opera */
-    transition: all 1s ease;
+    -webkit-transition: all 0.8s ease-in-out; /* Safari and Chrome */
+    -moz-transition: all 0.8s ease-in-out; /* Firefox */
+    -o-transition: all 0.8s ease-in-out; /* IE 9 */
+    -ms-transition: all 0.8s ease-in-out; /* Opera */
+    transition: all 0.8s ease-in-out;
 }
 
 .single-hero-li:hover img {
-    -webkit-transform:scale(1.1); /* Safari and Chrome */
-    -moz-transform:scale(1.1); /* Firefox */
-    -ms-transform:scale(1.1); /* IE 9 */
-    -o-transform:scale(1.1); /* Opera */
-     transform:scale(1.05);
+    -webkit-transform:scale(1.3); /* Safari and Chrome */
+    -moz-transform:scale(1.3); /* Firefox */
+    -ms-transform:scale(1.3); /* IE 9 */
+    -o-transform:scale(1.3); /* Opera */
+     transform:scale(1.3);
 }
 
 .invalidInput {
