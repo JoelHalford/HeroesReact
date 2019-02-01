@@ -1,5 +1,4 @@
 import Cookies from 'universal-cookie';
-
 class Auth {
 
 	constructor(){
@@ -7,7 +6,7 @@ class Auth {
 
 		console.log(cookies.get('username'));
 
-		if (cookies.get('username') == undefined)	{
+		if (cookies.get('username') === undefined)	{
 			this.authenticated = false;
 		}
 		else {
@@ -17,7 +16,9 @@ class Auth {
 
 	login(cb) {
 		this.authenticated = true;
-		window.location.reload();
+		window.history.back();
+		setTimeout(function(){ 
+			window.location.reload()}, 200);
 		cb();
 	}
 
@@ -27,6 +28,7 @@ class Auth {
 		cookies.remove('username');
 		this.authenticated = false;
 		window.location.reload();
+		cb();
 	}
 
 	isAuthenticated() {

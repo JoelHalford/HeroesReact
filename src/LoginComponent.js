@@ -3,7 +3,6 @@ import './App.css';
 import auth from './Auth.js';
 import bcrypt from 'bcryptjs';
 import axios from 'axios';
-import { withCookies, Cookies } from 'react-cookie';
 
 class LoginComponent extends Component {
 
@@ -18,7 +17,6 @@ class LoginComponent extends Component {
 
   updateUsername = (event) => {
       this.setState({ username: event.target.value });
-      console.log(this.state.username);
   }
   updatePassword = (event) => {
       this.setState({ password: event.target.value });
@@ -45,16 +43,14 @@ class LoginComponent extends Component {
 	    	if (username === user.username && bcrypt.compareSync(password, user.password)) {
 	    		auth.login(() => {
 					});
-
 	    	} else {
 	    		console.log("error");
-	    	}
+	    	}	    	
 	    })
   	})
 	} 
 
-  render(props) {
-
+  render() {
     return (
 		<div className="logreg-body">
 			<div className="card">

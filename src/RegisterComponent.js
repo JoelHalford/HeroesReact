@@ -11,7 +11,7 @@ class RegisterComponent extends Component {
 	  	this.state = {
 	  		username: "",
 	  		password: "",
-	  		correctInput: false
+	  		error: ""
 	  	}
   	}
 
@@ -56,7 +56,18 @@ class RegisterComponent extends Component {
                 username: this.state.username,
                 password: hash
             }
-        });
+        }).then(resp => {
+        	this.setState({
+        		error: "Account created successfully."
+        	});
+            setTimeout(function(){
+            	window.history.back();
+            }, 2000);
+        }).catch(error => {
+        	this.setState({
+        		error: "Error occured. Please try again with different credentials."
+        	})
+        })
     } 
 
   render() {
@@ -72,7 +83,7 @@ class RegisterComponent extends Component {
 			            <p>Already registered? Login now!</p>
 			            <div className="md-form mt-3">
 			            	<label for="username">Username</label>
-			                <input type="text" id="username" className="form-control" value={this.state.username} onChange={this.updateUsername} />
+			                <input type="text" id="username" className="form-control" value={this.state.username} onChange={this.updateUsername} required />
 			                {this.validateUsername()}
 			            </div>
 
@@ -81,6 +92,7 @@ class RegisterComponent extends Component {
 			                <input type="password" id="password" className="form-control" value={this.state.password} onChange={this.updatePassword} />
 			                {this.validatePassword()}
 			            </div>
+			            <p>{this.state.error}</p>
 			            <button type="button" onClick={this.setUser} className="btn btn-outline-info btn-rounded">Register</button>
 			        </form>
 			    </div>

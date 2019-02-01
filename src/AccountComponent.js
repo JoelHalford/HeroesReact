@@ -74,6 +74,7 @@ class AccountComponent extends Component {
   	// })}
 
   render() {
+
     return (
 		<div className="logreg-body">
 			<div className="card">
