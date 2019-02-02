@@ -13,14 +13,16 @@ class AccountComponent extends Component {
 
 		this.state = {
 			usernameDataFromLogin: null,
-			username: cookies.get('username')
+			username: cookies.get('username'),
+			newUsername: "",
+			users: []
 		};
 	}
 
 	delete = () => {
 		axios({
       method:'get',
-      url:'http://localhost:8080/HeroesAPI/api/heroes/getAllAccounts',
+      url:'http://localhost:8080/HeroesAPI/api/account/getAllAccounts',
   	})
     .then(response => {
 
@@ -28,13 +30,14 @@ class AccountComponent extends Component {
         users: response.data
       });
       		var username = this.state.username;
+
 	    	this.state.users.forEach(function(user) {
 	    		
 	    	if (username === user.username) {
 
 	    		axios({
 	    			method: 'delete',
-	    			url: 'http://localhost:8080/HeroesAPI/api/heroes/deleteAccount/' + user.userID
+	    			url: 'http://localhost:8080/HeroesAPI/api/account/deleteAccount/' + user.userID
 	    		})
 	    		.then(response => {
 	    			auth.logout();
@@ -47,31 +50,48 @@ class AccountComponent extends Component {
   	})
 	} 
 
-  	// update = () => {
-	  // 	axios({
-	  // 		method:'get',
-   //    	url:'http://localhost:8080/HeroesAPI/api/heroes/getAllAccounts',
-	  // 	})
-	  // 	.then(response =>
-	  // 	{      	
-   //    	var username = this.state.username;
-	  //   	this.state.users.forEach(function(user) {	    		
-	    		
-	  //   		if (username === user.username) {
-		 //    		axios({
-		 //    			method: 'put',
-		 //    			url: 'http://localhost:8080/HeroesAPI/api/heroes/updateAccount/' + user.userID,
-		 //    			data: {
-		 //    				username: username,
+  	update = () => {
+	  	axios({
+	  		method:'get',
+      	url:'http://localhost:8080/HeroesAPI/api/account/getAllAccounts',
+	  	})
+	  	.then(response =>
+	  	{      
+			let username = this.state.username;
+			let newUsername = this.state.newUsername;
 
-		 //    			}
-		 //    		})
-		 //    		.then(response => {
-		 //    			auth.logout();
-		 //    		})
-	  //   		}
-	  // 	})
-  	// })}
+	  		this.setState({
+	  			users: response.data
+	  		})
+
+	    	this.state.users.forEach(function(user) {	    		
+	    		
+	    		if (username === user.username) {
+		    		axios({
+		    			method: 'put',
+		    			url: 'http://localhost:8080/HeroesAPI/api/account/updateAccount/' + user.userID,
+		    			data: {
+		    				username: newUsername,
+		    				password: user.password
+
+		    			}
+		    		})
+		    		.then(response => {
+
+		    			const cookies = new Cookies();
+
+		    			cookies.set('username', newUsername);
+		    		})
+		    		.catch(error => {
+		    			console.log(error);
+		    		})
+	    		}
+	  	})
+  	})}
+
+    updateUsername = (event) => {
+        this.setState({ newUsername: event.target.value });
+    }
 
   render() {
 
@@ -86,7 +106,7 @@ class AccountComponent extends Component {
 			            <p>Feel free to update or delete your account.</p>
 			            <div className="md-form mt-3">
 			            	<label for="username">Username</label>
-			                <input type="text" id="username" className="form-control" value={this.state.username} onChange={this.updateUsername} />       
+			                <input type="text" id="username" className="form-control" onChange={this.updateUsername} />       
 			            </div>
 			            <div className="md-form">
 			            	<label for="password">Password</label>
