@@ -26,21 +26,20 @@ class RegisterComponent extends Component {
     }
 
     validateUsername = () => {
-
-	    if (this.state.username.length <= 4)
-	    {
-	    	return <p className="invalidInput">Username should be more than 4 characters.</p>
-	    } else {
+	    if (this.state.username.length < 4) {
+	    	return <p className="invalidInput">Username should be between 4 and 12 characters.</p>
+	    }  else if (this.state.username.length > 12) {
+	    	return <p className="invalidInput">Username should be between 6 and 12 characters.</p>
+	    } else  {
 	    	return <p className="validInput">Username is valid</p>
 	    }
     }
 
     validatePassword = () => {
-	    if (this.state.password.length <= 8)
-	    {
-	    	return <p className="invalidInput">Password should be more than 8 characters.</p>
-	    } else {
-
+	    if (this.state.password.length < 1) {
+	    	console.log(this.state.password.length );
+	    	return <p className="invalidInput">Password cannot be empty.</p>
+	    } else  {
 	    	return <p className="validInput">Password is valid</p>
 	    }
     }
@@ -89,7 +88,7 @@ class RegisterComponent extends Component {
 
 			            <div className="md-form">
 			            	<label for="password">Password</label>
-			                <input type="password" id="password" className="form-control" value={this.state.password} onChange={this.updatePassword} />
+			                <input type="password" id="password" className="form-control" value={this.state.password} onChange={this.updatePassword} required />
 			                {this.validatePassword()}
 			            </div>
 			            <p>{this.state.error}</p>

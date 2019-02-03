@@ -56,7 +56,7 @@ class NavComponent extends Component {
 							Auth.logout(() => {
 								console.log(Auth.isAuthenticated());
 							});
-						}}>Logout</li>
+						}}><Link to="/">Logout</Link></li>
 					</ul>
   		} 
   		else
