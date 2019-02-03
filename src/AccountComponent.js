@@ -73,7 +73,6 @@ class AccountComponent extends Component {
 		    			data: {
 		    				username: newUsername,
 		    				password: user.password
-
 		    			}
 		    		})
 		    		.then(response => {
@@ -81,6 +80,9 @@ class AccountComponent extends Component {
 		    			const cookies = new Cookies();
 
 		    			cookies.set('username', newUsername);
+		    			setTimeout(function(){
+			            	window.location.reload();
+			            }, 2000);
 		    		})
 		    		.catch(error => {
 		    			console.log(error);
@@ -107,10 +109,6 @@ class AccountComponent extends Component {
 			            <div className="md-form mt-3">
 			            	<label for="username">Username</label>
 			                <input type="text" id="username" className="form-control" onChange={this.updateUsername} />       
-			            </div>
-			            <div className="md-form">
-			            	<label for="password">Password</label>
-			                <input type="password" id="password" className="form-control" value={this.state.password} onChange={this.updatePassword} />
 			            </div>
 			            <button type="button" id="updateBtn" onClick={this.update} className="btn btn-outline-info btn-rounded">Update</button>
 			            <button type="button" id="deleteBtn" onClick={this.delete} className="btn btn-outline-danger btn-rounded">Delete</button>
