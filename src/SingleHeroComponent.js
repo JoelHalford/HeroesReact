@@ -13,7 +13,7 @@ class HeroesComponent extends Component {
 
   	axios({
       method:'get',
-      url:'http://localhost:8080/HeroesAPI/api/heroes/hero/' + props.match.params.id
+      url:'http://35.246.20.21:8081/HeroesAPI/api/heroes/hero/' + props.match.params.id
     })
    .then(response => {
     //logic to whether is should be set to something else

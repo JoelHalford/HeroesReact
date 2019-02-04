@@ -26,7 +26,7 @@ class LoginComponent extends Component {
 
 		axios({
       method:'get',
-      url:'http://localhost:8080/HeroesAPI/api/account/getAllAccounts',
+      url:'http://35.246.20.21:8081/HeroesAPI/api/account/getAllAccounts',
   	})
     .then(response => {
 
