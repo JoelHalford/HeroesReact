@@ -43,7 +43,6 @@ class NavComponent extends Component {
   render() {
 
   	  function loggedIn() {
-  	  	console.log(Auth.isAuthenticated());
   		if (Auth.isAuthenticated())
   		{
   			return <ul>

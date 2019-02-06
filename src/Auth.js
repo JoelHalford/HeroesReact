@@ -15,6 +15,7 @@ class Auth {
 	}
 
 	login(cb) {
+		console.log("Hello");
 		this.authenticated = true;
 		window.history.back();
 		setTimeout(function(){ 
