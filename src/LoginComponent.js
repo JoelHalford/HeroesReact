@@ -33,14 +33,13 @@ class LoginComponent extends Component {
       this.setState({
         users: response.data
       });
-
 			var password = this.state.password;
 			var username = this.state.username;
-
 			this.props.callbackFromNav(this.state.username);
 	    	this.state.users.forEach(function(user) {
-	    		
+
 	    	if (username === user.username && bcrypt.compareSync(password, user.password)) {
+	    		console.log("waddup");
 	    		auth.login(() => {
 					});
 	    	} else {

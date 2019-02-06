@@ -50,7 +50,7 @@ class RegisterComponent extends Component {
     	var hash = bcrypt.hashSync(this.state.password, salt);
         axios({
             method: "post",
-            url: "http://35.246.20.21:8081/HeroesAPI/api/account/createAccount",
+            url: "http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/account/createAccount",
             data: {
                 username: this.state.username,
                 password: hash
