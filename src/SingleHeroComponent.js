@@ -1,26 +1,62 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
+import Cookies from 'universal-cookie';
 
 class HeroesComponent extends Component {
   
   constructor(props) {
   	super();
-	this.state = {
+	  this.state = {
 			heroes: "",
 			image: ""
 		}
 
-  	axios({
+    // axios({
+    //   method:'get',
+    //   url:'http://localhost:8080/HeroesAPI/api/account/getAllAccounts',
+    //   //url:'http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/account/getAllAccounts',
+    // }).then(response -> {
+
+    //     const users = response.data;
+    //     const cookies = new Cookies();
+
+    //     let username = cookies.get('username');
+
+    //     this.state.users.map((user, i) => (
+    //       if (username === user.username) {
+    //         console.log("waddup");
+    //         auth.login(() => {
+    //         });
+    //       } else {
+    //         console.log("error");
+    //       } 
+    //     )) 
+    // })
+
+    axios({
       method:'get',
-      url:'http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/heroes/hero/' + props.match.params.id
+      // url:'http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/heroes/hero/' + props.match.params.id
+      url:'http://localhost:8080/HeroesAPI/api/heroes/hero/' + props.match.params.id
     })
    .then(response => {
     //logic to whether is should be set to something else
       this.setState({
         heroes: response.data
        });
-	})
+    })
+
+  	axios({
+      method:'get',
+      // url:'http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/heroes/hero/' + props.match.params.id
+      url:'http://localhost:8080/HeroesAPI/api/heroes/hero/' + props.match.params.id
+    })
+   .then(response => {
+    //logic to whether is should be set to something else
+      this.setState({
+        heroes: response.data
+       });
+	  })
   }
 
   render() {
@@ -36,6 +72,8 @@ class HeroesComponent extends Component {
   	{
   		hero = images('./' + heroName);
   	}
+
+
   	
     return (
 		<div className="main-body single-hero-body">

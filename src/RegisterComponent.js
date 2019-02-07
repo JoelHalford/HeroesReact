@@ -45,24 +45,36 @@ class RegisterComponent extends Component {
     }
 
     setUser = () => {
-
     	var salt = bcrypt.genSaltSync(10);
     	var hash = bcrypt.hashSync(this.state.password, salt);
         axios({
             method: "post",
-            url: "http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/account/createAccount",
+            url:'http://localhost:8080/HeroesAPI/api/account/createAccount',
+            // url: "http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/account/createAccount",
             data: {
                 username: this.state.username,
-                password: hash
+                password: hash,
+                admin: false
             }
         }).then(resp => {
-        	this.setState({
-        		error: "Account created successfully."
-        	});
-            setTimeout(function(){
-            	window.history.back();
-            }, 2000);
+        	console.log(resp);
+        	if (typeof resp.data == "string") {
+        		console.log(typeof resp.data);
+	        	this.setState({
+	        		error: resp.data
+	        	});
+        	}
+        	else
+        	{
+	        	this.setState({
+	        		error: "Account created successfully."
+	        	});
+	            setTimeout(function(){
+	            	window.history.back();
+	            }, 2000);
+        	}
         }).catch(error => {
+        	
         	this.setState({
         		error: "Error occured. Please try again with different credentials."
         	})

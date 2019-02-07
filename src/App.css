@@ -92,7 +92,7 @@ hr {
 
 .banner #banner-img {
   height: auto;
-  width: 60%;
+  width: 50%;
   margin: 0 auto;
   animation: brightness 3s infinite linear both;
 /*   -webkit-transition: all 1s ease;
@@ -389,7 +389,7 @@ img {
     -moz-transform:scale(1.3); /* Firefox */
     -ms-transform:scale(1.3); /* IE 9 */
     -o-transform:scale(1.3); /* Opera */
-     transform:scale(1.3);
+     transform:scale(3);
 }
 
 .invalidInput {
@@ -400,4 +400,14 @@ img {
 .validInput {
   color: green;
   font-weight: bold;
+}
+
+.frontpage-collection {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2%;
+}
+
+.frontpage-account {
+  margin-top: 5%;
 }

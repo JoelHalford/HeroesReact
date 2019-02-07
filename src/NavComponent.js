@@ -35,7 +35,7 @@ class NavComponent extends Component {
 
 		cookies.set('username', dataFromLogin);
 		this.setState({ 
-			usernameDataFromLogin: dataFromLogin ,
+			usernameDataFromLogin: dataFromLogin,
 			username: cookies.get('username')
 		});
 	}
@@ -46,27 +46,27 @@ class NavComponent extends Component {
   		if (Auth.isAuthenticated())
   		{
   			return <ul>
-						<li><Link to="/">Home</Link></li>
-						<li><Link to="/heroes">Heroes</Link></li>
-						<li><img id="nav-logo" alt="icon" src={require("./images/heroes-logo.png")}/></li>
+				<li><Link to="/">Home</Link></li>
+				<li><Link to="/heroes">Heroes</Link></li>
+				<li><img id="nav-logo" alt="icon" src={require("./images/heroes-logo.png")}/></li>
 
-						<li><Link to="/account">Account</Link></li>
-						<li onClick={() => {
-							Auth.logout(() => {
-								console.log(Auth.isAuthenticated());
-							});
-						}}><Link to="/">Logout</Link></li>
-					</ul>
+				<li><Link to="/account">Account</Link></li>
+				<li onClick={() => {
+					Auth.logout(() => {
+						console.log(Auth.isAuthenticated());
+					});
+				}}><Link to="/">Logout</Link></li>
+			</ul>
   		} 
   		else
   		{
-				return <ul>
-					<li><Link to="/">Home</Link></li>
-					<li><Link to="/heroes">Heroes</Link></li>
-					<li><img id="nav-logo" alt="nav-logo" src={require("./images/heroes-logo.png")}/></li>
-					<li><Link to="/register">Register</Link></li>
-					<li><Link to="/login">Login</Link></li>
-				</ul>
+			return <ul>
+				<li><Link to="/">Home</Link></li>
+				<li><Link to="/heroes">Heroes</Link></li>
+				<li><img id="nav-logo" alt="nav-logo" src={require("./images/heroes-logo.png")}/></li>
+				<li><Link to="/register">Register</Link></li>
+				<li><Link to="/login">Login</Link></li>
+			</ul>
   		}
   	}
     return (

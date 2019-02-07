@@ -23,10 +23,10 @@ class LoginComponent extends Component {
   }
 
 	setUser = () => {
-
 		axios({
       method:'get',
-      url:'http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/account/getAllAccounts',
+      url:'http://localhost:8080/HeroesAPI/api/account/getAllAccounts',
+      //url:'http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/account/getAllAccounts',
   	})
     .then(response => {
 
