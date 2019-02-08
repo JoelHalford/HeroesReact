@@ -64,8 +64,8 @@ class NavComponent extends Component {
 				<li><Link to="/">Home</Link></li>
 				<li><Link to="/heroes">Heroes</Link></li>
 				<li><img id="nav-logo" alt="nav-logo" src={require("./images/heroes-logo.png")}/></li>
-				<li><Link to="/register">Register</Link></li>
-				<li><Link to="/login">Login</Link></li>
+				<li id="nav-register"><Link to="/register">Register</Link></li>
+				<li id="nav-login"><Link to="/login">Login</Link></li>
 			</ul>
   		}
   	}

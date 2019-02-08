@@ -103,8 +103,8 @@ class RegisterComponent extends Component {
 			                <input type="password" id="password" className="form-control" value={this.state.password} onChange={this.updatePassword} required />
 			                {this.validatePassword()}
 			            </div>
-			            <p>{this.state.error}</p>
-			            <button type="button" onClick={this.setUser} className="btn btn-outline-info btn-rounded">Register</button>
+			            <p id="error-message">{this.state.error}</p>
+			            <button id="register-button" type="button" onClick={this.setUser} className="btn btn-outline-info btn-rounded">Register</button>
 			        </form>
 			    </div>
 			</div>

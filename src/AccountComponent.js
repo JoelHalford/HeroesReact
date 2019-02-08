@@ -15,7 +15,8 @@ class AccountComponent extends Component {
 			usernameDataFromLogin: null,
 			username: cookies.get('username'),
 			newUsername: "",
-			users: []
+			users: [],
+			error: ""
 		};
 	}
 
