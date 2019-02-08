@@ -11,7 +11,8 @@ class LoginComponent extends Component {
   	this.state = {
   		users: [],
   		username: "",
-  		password: ""
+  		password: "",
+  		error: ""
   	}
   }
 
@@ -23,10 +24,10 @@ class LoginComponent extends Component {
   }
 
 	setUser = () => {
-
 		axios({
       method:'get',
-      url:'http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/account/getAllAccounts',
+      url:'http://localhost:8080/HeroesAPI/api/account/getAllAccounts',
+      //url:'http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/account/getAllAccounts',
   	})
     .then(response => {
 
@@ -43,7 +44,9 @@ class LoginComponent extends Component {
 	    		auth.login(() => {
 					});
 	    	} else {
-	    		console.log("error");
+	    		this.setState({
+	    			error: "Username or password invalid."
+	    		})
 	    	}	    	
 	    })
   	})
@@ -67,7 +70,8 @@ class LoginComponent extends Component {
 			            	<label for="password">Password</label>
 			                <input type="password" id="password" className="form-control" value={this.state.password} onChange={this.updatePassword} />
 			            </div>
-			            <button type="button" onClick={this.setUser} className="btn btn-outline-info btn-rounded">Login</button>
+			            <p id="error-message">{this.state.error}</p>
+			            <button id="login-button" type="button" onClick={this.setUser} className="btn btn-outline-info btn-rounded">Login</button>
 			        </form>
 			    </div>
 			</div>

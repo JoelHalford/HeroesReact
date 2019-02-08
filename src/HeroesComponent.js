@@ -13,7 +13,8 @@ class HeroesComponent extends Component {
 
 	  axios({
         method:'get',
-        url:'http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/heroes/getAllHeroes',
+        // url:'http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/heroes/getAllHeroes',
+        url:'http://localhost:8080/HeroesAPI/api/heroes/getAllHeroes',
 	  })
       .then(response => {
       	console.log(response.data)

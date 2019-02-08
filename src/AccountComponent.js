@@ -15,7 +15,8 @@ class AccountComponent extends Component {
 			usernameDataFromLogin: null,
 			username: cookies.get('username'),
 			newUsername: "",
-			users: []
+			users: [],
+			error: ""
 		};
 	}
 
@@ -37,7 +38,8 @@ class AccountComponent extends Component {
 
 	    		axios({
 	    			method: 'delete',
-	    			url: 'http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/account/deleteAccount/' + user.userID
+	    			// url: 'http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/account/deleteAccount/' + user.userID
+	    			url: 'http://localhost:8080/HeroesAPI/api/account/deleteAccount/' + user.userID
 	    		})
 	    		.then(response => {
 	    			auth.logout();
@@ -53,7 +55,8 @@ class AccountComponent extends Component {
   	update = () => {
 	  	axios({
 	  		method:'get',
-      	url:'http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/account/getAllAccounts',
+	      	// url:'http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/account/getAllAccounts',
+	      	url:'http://localhost:8080/HeroesAPI/api/account/getAllAccounts',
 	  	})
 	  	.then(response =>
 	  	{      
@@ -69,7 +72,8 @@ class AccountComponent extends Component {
 	    		if (username === user.username) {
 		    		axios({
 		    			method: 'put',
-		    			url: 'http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/account/updateAccount/' + user.userID,
+		    			// url: 'http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/account/updateAccount/' + user.userID,
+		    			url: 'http://localhost:8080/HeroesAPI/api/account/updateAccount/' + user.userID,
 		    			data: {
 		    				username: newUsername,
 		    				password: user.password

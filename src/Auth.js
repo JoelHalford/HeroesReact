@@ -4,8 +4,6 @@ class Auth {
 	constructor(){
 		const cookies = new Cookies();
 
-		console.log(cookies.get('username'));
-
 		if (cookies.get('username') === undefined)	{
 			this.authenticated = false;
 		}
@@ -15,7 +13,6 @@ class Auth {
 	}
 
 	login(cb) {
-		console.log("Hello");
 		this.authenticated = true;
 		window.history.back();
 		setTimeout(function(){ 

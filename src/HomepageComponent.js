@@ -10,15 +10,25 @@ class HomepageComponent extends Component {
 			<div className="banner">
 				<img id="banner-img" alt="Banner" src={require("./images/banner.png")}/>
 			</div>
-			<h2>Register</h2>
-			<p>
-				<a href="register">Register</a> an account to view all heroes, skills and types.
-			</p>
-			<hr/>
-			<h2>Login</h2>
-			<p>
-				Already have an account? <a href="login">Login now</a>!
-			</p>
+			<div className="frontpage-collection">
+				<div className="frontpage-account">
+					<h3>Account</h3>
+					<h5>Register</h5>
+					<p>
+						<a href="register">Register</a> an account to view all heroes, skills and types.
+					</p>
+					<h5>Login</h5>
+					<p>
+						Already have an account? <a href="login">Login now</a>!
+					</p>
+				</div>
+				<div>
+					<iframe width="500" height="300" src="https://www.youtube-nocookie.com/embed/0ecv0bT9DEo" 
+					frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+					lowfullscreen></iframe>
+				</div>
+			</div>
+
 			<hr/>
 			<h2>Most Recent Heroes</h2>
 			<div>
