@@ -32,7 +32,7 @@ html {
 
 body {
   margin: 0;
-  font-family: Staatliches;
+  font-family: Arial, Staatliches;
   font-size: 1.2em;
   background: url("images/heroes-bg2.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -285,9 +285,6 @@ input[type=text]:focus {
   height: auto;
 }
 
-.single-hero-li {
-  list-style-type: none;
-}
 .single-hero-body {
   font-size: 1.5em;
 }
@@ -376,6 +373,7 @@ img {
 }
 
 .single-hero-li {
+    list-style-type: none;
     overflow: hidden;   
 }
 
