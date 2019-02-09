@@ -285,9 +285,6 @@ input[type=text]:focus {
   height: auto;
 }
 
-.single-hero-li {
-  list-style-type: none;
-}
 .single-hero-body {
   font-size: 1.5em;
 }
@@ -376,6 +373,7 @@ img {
 }
 
 .single-hero-li {
+    list-style-type: none;
     overflow: hidden;   
 }
 

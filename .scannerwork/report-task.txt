@@ -1,0 +1,7 @@
+organization=joelhalford-github
+projectKey=JoelHalford_HeroesReact
+serverUrl=https://sonarcloud.io
+serverVersion=7.7.0.21686
+dashboardUrl=https://sonarcloud.io/dashboard?id=JoelHalford_HeroesReact
+ceTaskId=AWjS6OIdCU3ICMF6jbfz
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWjS6OIdCU3ICMF6jbfz

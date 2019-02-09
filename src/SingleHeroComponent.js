@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
-import Cookies from 'universal-cookie';
+// import Cookies from 'universal-cookie';
 
 // const URL = "http://localhost:8080";
 const URL = "http://heroes-react.uksouth.cloudapp.azure.com:8080";
