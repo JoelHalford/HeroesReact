@@ -32,7 +32,7 @@ html {
 
 body {
   margin: 0;
-  font-family: Staatliches;
+  font-family: Arial, Staatliches;
   font-size: 1.2em;
   background: url("images/heroes-bg2.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
