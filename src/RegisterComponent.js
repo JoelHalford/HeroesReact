@@ -3,6 +3,9 @@ import './App.css';
 import axios from 'axios';
 import bcrypt from 'bcryptjs';
 
+// const URL = "http://localhost:8080";
+const URL = "http://heroes-react.uksouth.cloudapp.azure.com:8080";
+
 class RegisterComponent extends Component {
 
 	constructor() {
@@ -49,8 +52,7 @@ class RegisterComponent extends Component {
     	var hash = bcrypt.hashSync(this.state.password, salt);
         axios({
             method: "post",
-            url:'http://localhost:8080/HeroesAPI/api/account/createAccount',
-            // url: "http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/account/createAccount",
+            url: URL + '/HeroesAPI/api/account/createAccount',
             data: {
                 username: this.state.username,
                 password: hash,

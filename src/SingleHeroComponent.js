@@ -3,6 +3,9 @@ import './App.css';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 
+// const URL = "http://localhost:8080";
+const URL = "http://heroes-react.uksouth.cloudapp.azure.com:8080";
+
 class HeroesComponent extends Component {
   
   constructor(props) {
@@ -36,8 +39,7 @@ class HeroesComponent extends Component {
 
     axios({
       method:'get',
-      // url:'http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/heroes/hero/' + props.match.params.id
-      url:'http://localhost:8080/HeroesAPI/api/heroes/hero/' + props.match.params.id
+      url: URL + '/HeroesAPI/api/heroes/hero/' + props.match.params.id
     })
    .then(response => {
     //logic to whether is should be set to something else
@@ -49,7 +51,7 @@ class HeroesComponent extends Component {
   	axios({
       method:'get',
       // url:'http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/heroes/hero/' + props.match.params.id
-      url:'http://localhost:8080/HeroesAPI/api/heroes/hero/' + props.match.params.id
+      url: URL + '/HeroesAPI/api/heroes/hero/' + props.match.params.id
     })
    .then(response => {
     //logic to whether is should be set to something else

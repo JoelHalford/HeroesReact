@@ -4,6 +4,9 @@ import auth from './Auth.js';
 import bcrypt from 'bcryptjs';
 import axios from 'axios';
 
+// const URL = "http://localhost:8080";
+const URL = "http://heroes-react.uksouth.cloudapp.azure.com:8080";
+
 class LoginComponent extends Component {
 
   constructor() {
@@ -26,8 +29,7 @@ class LoginComponent extends Component {
 	setUser = () => {
 		axios({
       method:'get',
-      url:'http://localhost:8080/HeroesAPI/api/account/getAllAccounts',
-      //url:'http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/account/getAllAccounts',
+      url: URL + '/HeroesAPI/api/account/getAllAccounts',
   	})
     .then(response => {
 

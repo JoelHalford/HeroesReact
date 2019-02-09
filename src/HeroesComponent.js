@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 
+// const URL = "http://localhost:8080";
+const URL = "http://heroes-react.uksouth.cloudapp.azure.com:8080";
+
 class HeroesComponent extends Component {
 
 	constructor() {
@@ -14,7 +17,7 @@ class HeroesComponent extends Component {
 	  axios({
         method:'get',
         // url:'http://heroes-react.uksouth.cloudapp.azure.com:8080/HeroesAPI/api/heroes/getAllHeroes',
-        url:'http://localhost:8080/HeroesAPI/api/heroes/getAllHeroes',
+        url: URL+ '/HeroesAPI/api/heroes/getAllHeroes',
 	  })
       .then(response => {
       	console.log(response.data)

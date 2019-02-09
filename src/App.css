@@ -91,8 +91,6 @@ hr {
 }
 
 .banner #banner-img {
-  height: auto;
-  width: 50%;
   margin: 0 auto;
   animation: brightness 3s infinite linear both;
 /*   -webkit-transition: all 1s ease;
@@ -103,6 +101,11 @@ hr {
 0% {filter: brightness(100%);}
 50%{filter: brightness(200%);}
 100% {filter: brightness(100%);}
+}
+
+#recent-heroes-tag {
+  text-align: center;
+  padding-bottom: 20px;
 }
 
 .main-body {
@@ -404,10 +407,23 @@ img {
 
 .frontpage-collection {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin-top: 2%;
 }
 
 .frontpage-account {
-  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.frontpage-account p {
+  padding: 0 5%;
+}
+
+#video {
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
 }
