@@ -22,10 +22,12 @@ class HomepageComponent extends Component {
 					</p>
 				</div>
 			</div>
-			<div id="video">
-				<iframe width="500" height="300" src="https://www.youtube-nocookie.com/embed/0ecv0bT9DEo" 
-				frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-				lowfullscreen></iframe>
+			<div id="outer-video">
+				<div id="video-responsive">
+					<iframe src="https://www.youtube-nocookie.com/embed/0ecv0bT9DEo" 
+					frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+					lowfullscreen></iframe>
+				</div>
 			</div>
 
 			<hr/>

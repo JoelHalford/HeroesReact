@@ -41,7 +41,6 @@ body {
   background-size: cover;
 }
 
-
 nav > ul {
   display: flex;
   flex-direction: row;
@@ -74,11 +73,43 @@ nav ul li a:visited {
 }
 
 nav #nav-logo {
-  height: 80px;
-  weight: 80px;
+  align-self: center;
+  max-height: 80px;
+  max-width: 80px;
   overflow: visible;
 }
 
+@media only screen and (max-width: 750px) {
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: rgba(255,255,255,0.8);
+    /*height: 50px;*/
+  }
+
+  nav #nav-logo {
+    display: none;
+  }
+
+  #recent-heroes-tag {
+    font-size: 1.2em;
+  }
+
+  .all-heroes-limiter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .main-body {
+    padding-left: 2% !important;
+    padding-right: 2% !important;
+  }
+}
 hr {
     border: 0;
     height: 1px;
@@ -87,12 +118,14 @@ hr {
 }
 
 .banner {
+  display: flex;
   text-align: center;
 }
 
 .banner #banner-img {
   margin: 0 auto;
   animation: brightness 3s infinite linear both;
+  align-self: center;
 /*   -webkit-transition: all 1s ease;
    transition:  all 1s ease;
    filter: brightness(130%);*/
@@ -280,9 +313,7 @@ input[type=text]:focus {
 
 .hero-image-thumb {
   max-width:200px;
-  max-height:280px;
-  width: auto;
-  height: auto;
+  max-height:auto;
 }
 
 .single-hero-li {
@@ -422,8 +453,24 @@ img {
   padding: 0 5%;
 }
 
-#video {
-  margin: 0 auto;
+#outer-video {
+  max-width: 600px;
   text-align: center;
-  padding: 10px;
+  margin: 0 auto;
+}
+
+#video-responsive {
+  position:relative;
+  padding-bottom:56.25%;
+  padding-top:30px;
+  height:0;
+  overflow:hidden;
+}
+
+#video-responsive iframe, #video-responsive object, #video-responsive embed {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
 }

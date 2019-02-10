@@ -33,24 +33,28 @@ class LoginComponent extends Component {
   	})
     .then(response => {
 
+    	let message;
+
       this.setState({
         users: response.data
       });
 			var password = this.state.password;
 			var username = this.state.username;
 			this.props.callbackFromNav(this.state.username);
-	    	this.state.users.forEach(function(user) {
+				for (let user of this.state.users) {
+		    	if (username === user.username && bcrypt.compareSync(password, user.password)) {
+		    		message = "Logged in successfully."; 
 
-	    	if (username === user.username && bcrypt.compareSync(password, user.password)) {
-	    		console.log("waddup");
-	    		auth.login(() => {
-					});
-	    	} else {
-	    		this.setState({
-	    			error: "Username or password invalid."
-	    		})
-	    	}	    	
-	    })
+		    		auth.login(() => {
+						});
+						break;
+		    	}	else {
+		    		message = "Username or password invalid";
+		    	}
+		    }
+				this.setState({
+	    			error: message
+	    		})    
   	})
 	} 
 
