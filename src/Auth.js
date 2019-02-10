@@ -13,11 +13,13 @@ class Auth {
 	}
 
 	login(cb) {
-		this.authenticated = true;
-		window.history.back();
-		setTimeout(function(){ 
-			window.location.reload()}, 200);
-		cb();
+    setTimeout(function(){
+			this.authenticated = true;
+			window.history.back();
+			setTimeout(function(){ 
+				window.location.reload()}, 200);
+			cb();
+    }, 2000);
 	}
 
 	logout(cb) {
